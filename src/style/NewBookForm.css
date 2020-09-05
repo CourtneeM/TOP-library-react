@@ -1,0 +1,17 @@
+.new-book-form div {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto 30px;
+}
+
+.new-book-form div input {
+  width: 100%;
+  margin: 0 15px;
+}
+
+.new-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

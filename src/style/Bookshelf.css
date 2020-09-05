@@ -1,0 +1,13 @@
+.bookshelf {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  background-color: #eee;
+}
+
+.bookshelf p {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}

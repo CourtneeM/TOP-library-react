@@ -1,0 +1,15 @@
+.book {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.book:nth-child(odd) {
+  background-color: #eee;
+}
+
+.book p {
+  width: 100%;
+  text-align: center;
+}
