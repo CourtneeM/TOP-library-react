@@ -12,8 +12,11 @@ class Bookshelf extends Component {
           <p>Author</p>
           <p>Pages</p>
           <p>Completed</p>
+          <p>Delete</p>
         </div>
-        <Book />
+        <div className="books-container">
+          <Book />
+        </div>
         <NewBookForm />
       </div>
     )

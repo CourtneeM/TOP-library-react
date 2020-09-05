@@ -1,15 +1,16 @@
 .book {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 60%;
   margin: 0 auto;
 }
 
-.book:nth-child(odd) {
-  background-color: #eee;
+.book:nth-child(even) {
+  background-color: #ddd;
 }
 
-.book p {
+.book > * {
   width: 100%;
   text-align: center;
 }

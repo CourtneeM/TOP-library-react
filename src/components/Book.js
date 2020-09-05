@@ -8,7 +8,8 @@ class Book extends Component {
         <p>Test Book</p>
         <p>Creator 1</p>
         <p>0000</p>
-        <p>Yes</p>
+        <input type="checkbox" checked />
+        <p style={{color: 'red', cursor: 'pointer'}}>[X]</p>
       </div>
     )
   }
