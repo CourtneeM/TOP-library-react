@@ -4,6 +4,19 @@ import NewBookForm from './NewBookForm';
 import '../style/Bookshelf.css';
 
 class Bookshelf extends Component {
+
+  state = {
+    bookshelf: [{title: 'harry potter', author: 'JK', pages: '3883', completed: false}],
+  }
+
+  addBook = (book) => {
+    let bookshelf = this.state.bookshelf;
+    bookshelf.push(book);
+    this.setState(
+      bookshelf
+    )
+  }
+
   render() {
     return (
       <div>
@@ -14,10 +27,16 @@ class Bookshelf extends Component {
           <p>Completed</p>
           <p>Delete</p>
         </div>
-        <div className="books-container">
-          <Book />
+        <div>
+        { 
+          this.state.bookshelf.forEach((book) => (
+            <Book book={book} />
+            )) 
+        }
         </div>
-        <NewBookForm />
+        <div>
+          <NewBookForm addBook={ this.addBook } />
+        </div>
       </div>
     )
   }

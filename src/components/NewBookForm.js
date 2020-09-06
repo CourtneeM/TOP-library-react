@@ -3,18 +3,36 @@ import '../style/NewBookForm.css';
 
 class NewBookForm extends Component {
 
-  handleAddBookBtn() {
-    console.log('yo');
+  handleAddBookBtn = () => {
+    let title = document.getElementById('new-book-title');
+    let author = document.getElementById('new-book-author');
+    let pages = document.getElementById('new-book-pages');
+    let completed = document.getElementById('new-book-completed');
+    
+    let book = {
+      title: title.value,
+      author: author.value,
+      pages: pages.value,
+      completed: completed.checked
+    }
+
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    completed.checked = false;
+
+    this.props.addBook(book);
+
   }
 
   render() {
     return (
       <div className="new-book-form">
         <div>
-          <input type="text" placeholder="New Book Title" />
-          <input type="text" placeholder="New Book Author" />
-          <input type="text" placeholder="New Book Pages" />
-          <input type="checkbox" />
+          <input id="new-book-title" type="text" placeholder="New Book Title" />
+          <input id="new-book-author" type="text" placeholder="New Book Author" />
+          <input id="new-book-pages" type="text" placeholder="New Book Pages" />
+          <input id="new-book-completed" type="checkbox" />
           <p></p>
         </div>
         <button onClick={ this.handleAddBookBtn }>Add Book</button>

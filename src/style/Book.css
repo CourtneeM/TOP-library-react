@@ -14,3 +14,8 @@
   width: 100%;
   text-align: center;
 }
+
+#delete-btn {
+  color: red;
+  cursor: pointer;
+}
