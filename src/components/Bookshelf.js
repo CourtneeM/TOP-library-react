@@ -12,9 +12,9 @@ class Bookshelf extends Component {
   addBook = (book) => {
     let bookshelf = this.state.bookshelf;
     bookshelf.push(book);
-    this.setState(
+    this.setState({
       bookshelf
-    )
+    });
   }
 
   deleteBook = (index) => {

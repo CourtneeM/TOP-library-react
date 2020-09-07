@@ -22,7 +22,6 @@ class NewBookForm extends Component {
     completed.checked = false;
 
     this.props.addBook(book);
-
   }
 
   render() {
