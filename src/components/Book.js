@@ -21,7 +21,7 @@ class Book extends Component {
           <p>{ title }</p>
           <p>{ author }</p>
           <p>{ pages }</p>
-          <input type="checkbox" onChange={ this.toggleCompleted } />
+          { completed ? <input type="checkbox" checked onChange={ this.toggleCompleted } /> : <input type="checkbox" onChange={ this.toggleCompleted } /> }
           <p id="delete-btn" onClick={ this.deleteBook }>[X]</p>
         </div>
       </div>
@@ -30,5 +30,3 @@ class Book extends Component {
 }
 
 export default Book;
-
-// fix add book button - adding book adds it to state, not state.bookshelf

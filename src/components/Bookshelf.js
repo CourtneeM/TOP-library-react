@@ -6,7 +6,7 @@ import '../style/Bookshelf.css';
 class Bookshelf extends Component {
 
   state = {
-    bookshelf: [{title: 'harry potter', author: 'JK', pages: '3883', completed: false}, {title: 'harry pottah', author: 'JK', pages: '3883', completed: false}]
+    bookshelf: []
   }
 
   addBook = (book) => {
