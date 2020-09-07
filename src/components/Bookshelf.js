@@ -41,6 +41,14 @@ class Bookshelf extends Component {
     });
   }
 
+  toggleOrder = (index, newIndex) => {
+    let bookshelf = this.state.bookshelf;
+    let book = bookshelf[index];
+    bookshelf.splice(index, 1);
+    bookshelf.splice(newIndex, 0, book);
+    console.log(bookshelf);
+  }
+
   render() {
     return (
       <div>
@@ -52,7 +60,7 @@ class Bookshelf extends Component {
           <p>Delete</p>
         </div>
         <div className="books">
-          { this.state.bookshelf.map((book, index) => <Book book={book} index={index} deleteBook={this.deleteBook} toggleCompleted={this.toggleCompleted} editBook={this.editBook} /> ) }
+          { this.state.bookshelf.map((book, index) => <Book book={book} index={index} deleteBook={this.deleteBook} toggleCompleted={this.toggleCompleted} editBook={this.editBook} toggleOrder={this.toggleOrder}/> ) }
         </div>
         <div>
           <NewBookForm addBook={ this.addBook } />
