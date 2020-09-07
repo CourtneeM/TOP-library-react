@@ -26,18 +26,17 @@ class Book extends Component {
 
   editBook = (e) => {
     let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
+    let completed = document.querySelector('input[type="checkbox"]');
     let book = {
       title: document.getElementById('edit-title').value,
       author: document.getElementById('edit-author').value,
       pages: document.getElementById('edit-pages').value,
-      completed: document.getElementById('edit-completed').checked
+      completed: completed.checked
     }
-    console.log(document.getElementById('edit-completed'));
     this.setState({
       editMode: false
     });
     this.props.editBook(book, index);
-    console.log(document.getElementById('edit-completed'));
   }
 
   render() {
@@ -59,5 +58,4 @@ class Book extends Component {
 export default Book;
 
 // Add functionality to rearrange book order - drag and drop - have index update after rearranging, including state.bookshelf array in Bookshelf.js  - cursor: move
-
-// Add functionality to edit book - click off field to save
+// cannot add empty book
