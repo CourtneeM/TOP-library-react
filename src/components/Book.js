@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import '../style/Book.css';
 
 class Book extends Component {
+  
+  state = {
+    editMode: false
+  }
 
   deleteBook = (e) => {
     let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
@@ -13,16 +17,39 @@ class Book extends Component {
     this.props.toggleCompleted(index);
   }
 
+  toggleEditMode = () => {
+    let editMode = this.state.editMode;
+    this.setState({
+      editMode: !editMode
+    });
+  }
+
+  editBook = (e) => {
+    let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
+    let book = {
+      title: document.getElementById('edit-title').value,
+      author: document.getElementById('edit-author').value,
+      pages: document.getElementById('edit-pages').value,
+      completed: document.getElementById('edit-completed').checked
+    }
+    console.log(document.getElementById('edit-completed'));
+    this.setState({
+      editMode: false
+    });
+    this.props.editBook(book, index);
+    console.log(document.getElementById('edit-completed'));
+  }
+
   render() {
-    const {title, author, pages, completed, index} = this.props.book;
+    const {title, author, pages, completed} = this.props.book;
     return (
       <div>
         <div className='book'>
-          <p>{ title }</p>
-          <p>{ author }</p>
-          <p>{ pages }</p>
-          { completed ? <input type="checkbox" checked onChange={ this.toggleCompleted } /> : <input type="checkbox" onChange={ this.toggleCompleted } /> }
-          <p id="delete-btn" onClick={ this.deleteBook }>[X]</p>
+          { this.state.editMode ? <input id="edit-title" type="text" placeholder={ title } /> : <p onClick={ this.toggleEditMode }>{ title }</p> }
+          { this.state.editMode ? <input id="edit-author" type="text" placeholder={ author } /> : <p onClick={ this.toggleEditMode }>{ author }</p> }
+          { this.state.editMode ? <input id="edit-pages" type="text" placeholder={ pages } /> : <p onClick={ this.toggleEditMode }>{ pages }</p> }
+          { completed ? <input id="edit-completed" type="checkbox" checked onChange={ this.toggleCompleted } /> : <input type="checkbox" onChange={ this.toggleCompleted } /> }
+          { this.state.editMode ? <button onClick={ this.editBook }>Save Changes</button> : <p id="delete-btn" onClick={ this.deleteBook }>[X]</p> }
         </div>
       </div>
     )
@@ -30,3 +57,7 @@ class Book extends Component {
 }
 
 export default Book;
+
+// Add functionality to rearrange book order - drag and drop - have index update after rearranging, including state.bookshelf array in Bookshelf.js  - cursor: move
+
+// Add functionality to edit book - click off field to save
