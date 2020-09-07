@@ -9,6 +9,10 @@ class NewBookForm extends Component {
     let pages = document.getElementById('new-book-pages');
     let completed = document.getElementById('new-book-completed');
     
+    if (title.value === "" || author.value === "" || pages.value === "" ) {
+      return;
+    }
+
     let book = {
       title: title.value,
       author: author.value,
@@ -30,7 +34,7 @@ class NewBookForm extends Component {
         <div>
           <input id="new-book-title" type="text" placeholder="New Book Title" />
           <input id="new-book-author" type="text" placeholder="New Book Author" />
-          <input id="new-book-pages" type="text" placeholder="New Book Pages" />
+          <input id="new-book-pages" type="number" placeholder="New Book Pages" />
           <input id="new-book-completed" type="checkbox" />
           <p></p>
         </div>
