@@ -2,25 +2,27 @@ import React, {Component} from 'react';
 import '../style/Book.css';
 
 class Book extends Component {
-  
-  state = {
-    book: {
-      title: this.props.book.title,
-      author: this.props.book.author,
-      pages: this.props.book.pages,
-      completed: this.props.book.completed
-    }
+
+  deleteBook = (e) => {
+    let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
+    this.props.deleteBook(index);
+  }
+
+  toggleCompleted = (e) => {
+    let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
+    this.props.toggleCompleted(index);
   }
 
   render() {
+    const {title, author, pages, completed, index} = this.props.book;
     return (
       <div>
         <div className='book'>
-          <p>{ this.state.title }</p>
-          <p>{ this.state.author }</p>
-          <p>{ this.state.pages }</p>
-          <input type="checkbox" />
-          <p id="delete-btn">[X]</p>
+          <p>{ title }</p>
+          <p>{ author }</p>
+          <p>{ pages }</p>
+          <input type="checkbox" onChange={ this.toggleCompleted } />
+          <p id="delete-btn" onClick={ this.deleteBook }>[X]</p>
         </div>
       </div>
     )
@@ -29,4 +31,4 @@ class Book extends Component {
 
 export default Book;
 
-// display book info from bookshelf.js
+// fix add book button - adding book adds it to state, not state.bookshelf

@@ -6,7 +6,7 @@ import '../style/Bookshelf.css';
 class Bookshelf extends Component {
 
   state = {
-    bookshelf: [{title: 'harry potter', author: 'JK', pages: '3883', completed: false}],
+    bookshelf: [{title: 'harry potter', author: 'JK', pages: '3883', completed: false}, {title: 'harry pottah', author: 'JK', pages: '3883', completed: false}]
   }
 
   addBook = (book) => {
@@ -15,6 +15,22 @@ class Bookshelf extends Component {
     this.setState(
       bookshelf
     )
+  }
+
+  deleteBook = (index) => {
+    let bookshelf = this.state.bookshelf;
+    bookshelf.splice(index, 1);
+    this.setState({
+      bookshelf
+    });
+  }
+
+  toggleCompleted = (index) => {
+    let bookshelf = this.state.bookshelf;
+    bookshelf[index].completed = !bookshelf[index].completed;
+    this.setState({
+      bookshelf
+    });
   }
 
   render() {
@@ -28,11 +44,7 @@ class Bookshelf extends Component {
           <p>Delete</p>
         </div>
         <div>
-        { 
-          this.state.bookshelf.forEach((book) => (
-            <Book book={book} />
-            )) 
-        }
+          { this.state.bookshelf.map((book, index) => <Book book={book} index={index} deleteBook={this.deleteBook} toggleCompleted={this.toggleCompleted} /> ) }
         </div>
         <div>
           <NewBookForm addBook={ this.addBook } />
