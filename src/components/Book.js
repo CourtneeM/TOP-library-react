@@ -26,12 +26,19 @@ class Book extends Component {
 
   editBook = (e) => {
     let index = Array.from(e.target.parentNode.parentNode.parentNode.children).indexOf(e.target.parentNode.parentNode);
-    let completed = document.querySelector('input[type="checkbox"]');
+    let title = document.getElementById('edit-title').value;
+    let author = document.getElementById('edit-author').value;
+    let pages = document.getElementById('edit-pages').value;
+
+    if (title === "" || author === "" || pages === "") {
+      return;
+    }
+
     let book = {
-      title: document.getElementById('edit-title').value,
-      author: document.getElementById('edit-author').value,
-      pages: document.getElementById('edit-pages').value,
-      completed: completed.checked
+      title,
+      author, 
+      pages,
+      completed: document.querySelector('input[type="checkbox"]')
     }
     this.setState({
       editMode: false
@@ -39,11 +46,19 @@ class Book extends Component {
     this.props.editBook(book, index);
   }
 
+  toggleOrder = (e) => {
+
+  }
+
   render() {
     const {title, author, pages, completed} = this.props.book;
     return (
       <div>
         <div className='book'>
+          <div className="order-btns">
+          { this.state.editMode ? null : <i onClick={ this.toggleOrder } class="fas fa-sort-up fa-2x"></i> }
+          { this.state.editMode ? null : <i onClick={ this.toggleOrder } class="fas fa-sort-down fa-2x"></i> }
+          </div>
           { this.state.editMode ? <input id="edit-title" type="text" placeholder={ title } /> : <p onClick={ this.toggleEditMode }>{ title }</p> }
           { this.state.editMode ? <input id="edit-author" type="text" placeholder={ author } /> : <p onClick={ this.toggleEditMode }>{ author }</p> }
           { this.state.editMode ? <input id="edit-pages" type="text" placeholder={ pages } /> : <p onClick={ this.toggleEditMode }>{ pages }</p> }
@@ -57,5 +72,4 @@ class Book extends Component {
 
 export default Book;
 
-// Add functionality to rearrange book order - drag and drop - have index update after rearranging, including state.bookshelf array in Bookshelf.js  - cursor: move
-// cannot add empty book
+// Add functionality to rearrange book order - hide up arrow on first item (!previousSibling), hide down arrow on last (!nextSibling) - have index update after rearranging, including state.bookshelf array in Bookshelf.js

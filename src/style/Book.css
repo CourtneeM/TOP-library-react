@@ -2,12 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 60%;
   margin: 0 auto;
-}
-
-.book:nth-child(even) {
-  background-color: #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .book input {
@@ -30,3 +28,23 @@
   color: red;
   cursor: pointer;
 }
+
+.order-btns {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  cursor: pointer;
+}
+
+.order-btns > * {
+  width: 10px;
+  height: 1px;
+  margin: 5px 10px;
+}
+
+.order-btns > *:hover {
+  color: #ccc;
+} 

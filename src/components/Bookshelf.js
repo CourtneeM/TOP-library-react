@@ -51,7 +51,7 @@ class Bookshelf extends Component {
           <p>Completed</p>
           <p>Delete</p>
         </div>
-        <div>
+        <div className="books">
           { this.state.bookshelf.map((book, index) => <Book book={book} index={index} deleteBook={this.deleteBook} toggleCompleted={this.toggleCompleted} editBook={this.editBook} /> ) }
         </div>
         <div>
