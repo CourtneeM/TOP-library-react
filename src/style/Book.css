@@ -48,3 +48,35 @@
 .order-btns > *:hover {
   color: #ccc;
 }
+
+@media screen and (max-width: 1399px) {
+  .book {
+    width: 80%;
+  }
+
+  .order-btns {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .book {
+    width: 100%;
+  }
+
+  .order-btns {
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .order-btns {
+    flex-direction: row;
+    height: 50px;
+  }
+
+  .order-btns > i:last-child {
+    margin-top: -3px;
+    margin-left: 2px;
+  }
+}

@@ -20,3 +20,15 @@
 .books > div:last-child .fa-sort-down {
   display: none;
 }
+
+@media screen and (max-width: 1399px) {
+  .bookshelf {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .bookshelf {
+    width: 100%;
+  }
+}

@@ -20,6 +20,33 @@
   text-align: center;
 }
 
+.new-book-form div label {
+  display: none;
+}
+
 .new-book-form div input:nth-child(4) {
   margin: 15px 22px;
+}
+
+@media screen and (max-width: 1399px) {
+  .new-book-form div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .new-book-form div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .new-book-form div {
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .new-book-form div label {
+    display: block;
+  }
 }

@@ -35,6 +35,7 @@ class NewBookForm extends Component {
           <input id="new-book-title" type="text" placeholder="New Book Title" />
           <input id="new-book-author" type="text" placeholder="New Book Author" />
           <input id="new-book-pages" type="number" placeholder="New Book Pages" />
+          <label>Completed</label>
           <input id="new-book-completed" type="checkbox" />
           <p></p>
         </div>
