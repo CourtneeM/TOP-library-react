@@ -87,5 +87,3 @@ class Book extends Component {
 }
 
 export default Book;
-
-// Add functionality to rearrange book order - hide up arrow on first item (!previousSibling), hide down arrow on last (!nextSibling)
