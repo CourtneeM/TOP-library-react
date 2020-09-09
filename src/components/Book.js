@@ -38,7 +38,7 @@ class Book extends Component {
       title,
       author, 
       pages,
-      completed: document.querySelector('input[type="checkbox"]')
+      completed: document.querySelector('input[type="checkbox"]').checked
     }
     this.setState({
       editMode: false
@@ -87,3 +87,5 @@ class Book extends Component {
 }
 
 export default Book;
+
+// completed checkbox displays incorrectly when reordering books - only happens when new book is added as completed
