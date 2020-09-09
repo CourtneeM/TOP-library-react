@@ -46,7 +46,9 @@ class Bookshelf extends Component {
     let book = bookshelf[index];
     bookshelf.splice(index, 1);
     bookshelf.splice(newIndex, 0, book);
-    console.log(bookshelf);
+    this.setState({
+      bookshelf
+    });
   }
 
   render() {
